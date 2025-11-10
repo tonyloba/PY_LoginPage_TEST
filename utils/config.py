@@ -9,7 +9,10 @@ def load_config() -> Dict:
     with open(config_path) as file:
         return json.load(file)
 
-def load_csv(file_path: str = r"C:\Test222\Book1.csv") -> Dict[str, str]:
+def load_csv(file_name: str = "Book1.csv") -> Dict[str, str]:
+    # Get the absolute path to the data directory
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+    file_path = os.path.join(data_dir, file_name)
     """
     Load data from a CSV file with one column and no headers.
     Returns a dictionary with the expected keys for login testing.
